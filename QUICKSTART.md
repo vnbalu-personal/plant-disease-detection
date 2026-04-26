@@ -10,7 +10,7 @@ python -m pip install -r requirements.txt
 
 ```powershell
 python plant-disease.py preprocess `
-  --archive "C:\Users\ashwi\Downloads\archive (1).zip" `
+  --archive ".\data\plantvillage.zip" `
   --output-dir ".\artifacts\preprocessed-224" `
   --test-size 0.2 `
   --val-size 0.1 `

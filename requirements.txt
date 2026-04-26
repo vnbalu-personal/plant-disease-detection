@@ -2,3 +2,6 @@ numpy>=2.0
 Pillow>=11.0
 scikit-learn>=1.6
 scikit-image>=0.25
+torch>=2.5
+torchvision>=0.20
+matplotlib>=3.9

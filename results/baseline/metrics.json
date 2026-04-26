@@ -1,0 +1,77 @@
+{
+  "dataset": {
+    "total_records": 20638,
+    "train_records": 16510,
+    "test_records": 4128,
+    "binary_counts": {
+      "diseased": 17417,
+      "healthy": 3221
+    },
+    "train_binary_counts": {
+      "diseased": 13933,
+      "healthy": 2577
+    },
+    "test_binary_counts": {
+      "diseased": 3484,
+      "healthy": 644
+    }
+  },
+  "preprocessing": {
+    "image_mode": "RGB",
+    "grayscale_for_features": true,
+    "image_size": [
+      64,
+      64
+    ],
+    "binary_label_rule": "Folders containing 'healthy' map to healthy; all others map to diseased."
+  },
+  "feature_extractor": {
+    "name": "HOG",
+    "orientations": 9,
+    "pixels_per_cell": [
+      8,
+      8
+    ],
+    "cells_per_block": [
+      2,
+      2
+    ],
+    "block_norm": "L2-Hys",
+    "transform_sqrt": true,
+    "feature_length": 1764
+  },
+  "classifier": {
+    "name": "LinearSVC",
+    "class_weight": "balanced",
+    "random_state": 42,
+    "positive_label": "diseased"
+  },
+  "metrics": {
+    "accuracy": 0.8602228682170543,
+    "balanced_accuracy": 0.8273233093966383,
+    "precision_diseased": 0.9554998433093074,
+    "recall_diseased": 0.8751435132032147,
+    "f1_diseased": 0.913558052434457,
+    "roc_auc": 0.9174852564696822
+  },
+  "confusion_matrix": {
+    "labels": [
+      "healthy",
+      "diseased"
+    ],
+    "matrix": [
+      [
+        502,
+        142
+      ],
+      [
+        435,
+        3049
+      ]
+    ],
+    "true_negative": 502,
+    "false_positive": 142,
+    "false_negative": 435,
+    "true_positive": 3049
+  }
+}

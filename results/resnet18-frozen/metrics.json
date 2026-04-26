@@ -1,0 +1,157 @@
+{
+  "dataset": {
+    "total_records": 20638,
+    "train_records": 14446,
+    "val_records": 2064,
+    "test_records": 4128,
+    "binary_counts": {
+      "diseased": 17417,
+      "healthy": 3221
+    },
+    "train_binary_counts": {
+      "diseased": 12191,
+      "healthy": 2255
+    },
+    "val_binary_counts": {
+      "diseased": 1742,
+      "healthy": 322
+    },
+    "test_binary_counts": {
+      "diseased": 3484,
+      "healthy": 644
+    }
+  },
+  "preprocessing": {
+    "image_mode": "RGB",
+    "image_size": [
+      224,
+      224
+    ],
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "binary_label_rule": "Folders containing 'healthy' map to healthy; all others map to diseased."
+  },
+  "model": {
+    "name": "resnet18",
+    "display_name": "ResNet-18 Transfer Learning",
+    "input_shape": [
+      3,
+      224,
+      224
+    ],
+    "pretrained": true,
+    "freeze_backbone": true,
+    "fine_tune_last_block": false,
+    "classifier_head": "Linear(512, 2)"
+  },
+  "training": {
+    "epochs": 5,
+    "batch_size": 8,
+    "learning_rate": 0.0001,
+    "optimizer": "AdamW",
+    "loss": "CrossEntropyLoss",
+    "class_weights": [
+      3.203104257583618,
+      0.5924862623214722
+    ],
+    "best_epoch": 4,
+    "random_state": 42,
+    "device": "cpu"
+  },
+  "metrics": {
+    "accuracy": 0.969234496124031,
+    "balanced_accuracy": 0.9659517153839022,
+    "precision_diseased": 0.9926621661285588,
+    "recall_diseased": 0.970723306544202,
+    "f1_diseased": 0.9815701639820055,
+    "loss": 0.10737845105549515,
+    "roc_auc": 0.9935098159465454
+  },
+  "confusion_matrix": {
+    "labels": [
+      "healthy",
+      "diseased"
+    ],
+    "matrix": [
+      [
+        619,
+        25
+      ],
+      [
+        102,
+        3382
+      ]
+    ],
+    "true_negative": 619,
+    "false_positive": 25,
+    "false_negative": 102,
+    "true_positive": 3382
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.420183476571741,
+      "train_accuracy": 0.8850200747611796,
+      "train_f1_diseased": 0.9312869730691267,
+      "val_loss": 0.21414114204199278,
+      "val_accuracy": 0.934593023255814,
+      "val_precision_diseased": 0.9712609970674487,
+      "val_recall_diseased": 0.9506314580941446,
+      "val_f1_diseased": 0.9608355091383812
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.26064975508961274,
+      "train_accuracy": 0.9271770732382667,
+      "train_f1_diseased": 0.9560898238584189,
+      "val_loss": 0.1698848097332457,
+      "val_accuracy": 0.9413759689922481,
+      "val_precision_diseased": 0.9867867867867868,
+      "val_recall_diseased": 0.9431687715269805,
+      "val_f1_diseased": 0.9644848840622249
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.21958957395691564,
+      "train_accuracy": 0.9346531911947944,
+      "train_f1_diseased": 0.9606174384647476,
+      "val_loss": 0.1720178848197467,
+      "val_accuracy": 0.9413759689922481,
+      "val_precision_diseased": 0.9933049300060864,
+      "val_recall_diseased": 0.9368541905855339,
+      "val_f1_diseased": 0.9642540620384047
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.19779871386583783,
+      "train_accuracy": 0.9401910563477779,
+      "train_f1_diseased": 0.96397898774285,
+      "val_loss": 0.12688049176787278,
+      "val_accuracy": 0.9597868217054264,
+      "val_precision_diseased": 0.9911190053285968,
+      "val_recall_diseased": 0.9609644087256027,
+      "val_f1_diseased": 0.9758088020985135
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.18276746786906994,
+      "train_accuracy": 0.9444829018413402,
+      "train_f1_diseased": 0.9665749770776028,
+      "val_loss": 0.16399674099516268,
+      "val_accuracy": 0.9413759689922481,
+      "val_precision_diseased": 0.9951130116065975,
+      "val_recall_diseased": 0.9351320321469575,
+      "val_f1_diseased": 0.9641905889316366
+    }
+  ]
+}

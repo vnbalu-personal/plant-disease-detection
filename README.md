@@ -4,23 +4,22 @@ This project uses image classification to predict whether a plant leaf is `healt
 
 ## Models
 
-The project compares four approaches:
+The project includes one competition model plus baseline/reference experiments:
 
 - HOG features with a LinearSVC classifier
-- Custom CNN trained from scratch
-- ResNet-18 with a frozen pretrained backbone
-- ResNet-18 with the final block fine-tuned
+- Custom CNN trained from scratch for the competition submission
+- ImageNet-pretrained ResNet-18 transfer-learning runs as reference experiments only
 
 ## Results
 
 | Model | Accuracy | Balanced Accuracy | F1 Diseased |
 |---|---:|---:|---:|
 | HOG + LinearSVC baseline | 86.02% | 82.73% | 91.36% |
-| Custom CNN | 98.79% | 97.70% | 99.28% |
-| ResNet-18 frozen backbone | 96.92% | 96.60% | 98.16% |
-| ResNet-18 fine-tuned last block | 99.73% | 99.65% | 99.84% |
+| Custom CNN, trained from scratch | 98.79% | 97.70% | 99.28% |
+| ResNet-18 frozen ImageNet backbone, reference only | 96.92% | 96.60% | 98.16% |
+| ResNet-18 fine-tuned ImageNet backbone, reference only | 99.73% | 99.65% | 99.84% |
 
-The best model was the fine-tuned ResNet-18. Full metrics, confusion matrices, and training histories are in [results/](results/).
+The selected competition model is the custom CNN because it is the neural network designed and trained in this repository from scratch. The ImageNet-pretrained ResNet-18 runs are kept only as transfer-learning reference experiments and are not the submission model. Full metrics, confusion matrices, and training histories are in [results/](results/).
 
 ## Setup
 

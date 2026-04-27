@@ -161,7 +161,7 @@ def parse_args() -> argparse.Namespace:
 
     resnet_parser = subparsers.add_parser(
         "train-resnet18",
-        help="Train and evaluate a ResNet-18 comparison model.",
+        help="Train and evaluate a ResNet-18 transfer-learning model.",
     )
     resnet_parser.add_argument("--manifest", required=True, type=Path, help="Path to the preprocessing manifest.csv file.")
     resnet_parser.add_argument("--output-dir", required=True, type=Path, help="Directory where ResNet-18 artifacts will be written.")
@@ -174,7 +174,8 @@ def parse_args() -> argparse.Namespace:
     resnet_parser.add_argument(
         "--freeze-backbone",
         action="store_true",
-        help="Freeze ResNet-18 feature layers and train only the classifier head.",
+        default=True,
+        help="Freeze pretrained ResNet-18 feature layers and train the classifier head. Default behavior.",
     )
     resnet_parser.add_argument(
         "--fine-tune-last-block",
@@ -184,8 +185,8 @@ def parse_args() -> argparse.Namespace:
     resnet_parser.add_argument(
         "--pretrained",
         action=argparse.BooleanOptionalAction,
-        default=False,
-        help="Use ImageNet pretrained weights for a transfer-learning comparison. Default: train from scratch.",
+        default=True,
+        help="Use ImageNet pretrained weights. Use --no-pretrained for offline smoke tests.",
     )
     resnet_parser.add_argument("--no-plot", action="store_true", help="Skip writing the training curve PNG.")
 

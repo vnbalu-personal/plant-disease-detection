@@ -36,17 +36,18 @@ python plant-disease.py train-cnn `
   --batch-size 16
 ```
 
-## Optional ResNet-18 Comparison
+## Train ResNet-18 Transfer Learning
 
 ```powershell
 python plant-disease.py train-resnet18 `
   --manifest ".\artifacts\preprocessed-224\manifest.csv" `
   --output-dir ".\artifacts\resnet18" `
   --epochs 5 `
-  --batch-size 8
+  --batch-size 8 `
+  --freeze-backbone
 ```
 
-By default this trains ResNet-18 from scratch. Use `--pretrained` only for a transfer-learning reference experiment, not for the competition submission model.
+Use `--fine-tune-last-block` to unfreeze the final ResNet block. If pretrained weights are not available offline, use `--no-pretrained` only for smoke testing.
 
 Each neural training command writes:
 

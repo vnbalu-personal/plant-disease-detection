@@ -1,7 +1,5 @@
 # Binary Plant Disease Custom CNN
 
-Selected competition model. This architecture is defined in the repository and trained from scratch on the project dataset.
-
 ## Methodology
 - Dataset: 20,638 PlantVillage images split into 14,446 train, 2,064 validation, and 4,128 test images.
 - Labels: folders containing `healthy` are mapped to `healthy`; every other original PlantVillage folder is mapped to `diseased`.

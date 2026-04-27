@@ -1,7 +1,5 @@
 # Binary Plant Disease ResNet-18 Transfer Learning
 
-Reference-only experiment. This run uses an ImageNet-pretrained torchvision ResNet-18 backbone and is not the selected competition submission model.
-
 ## Methodology
 - Dataset: 20,638 PlantVillage images split into 14,446 train, 2,064 validation, and 4,128 test images.
 - Labels: folders containing `healthy` are mapped to `healthy`; every other original PlantVillage folder is mapped to `diseased`.
